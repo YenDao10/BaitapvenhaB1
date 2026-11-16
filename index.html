@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nhà thuốc Pharmacity - Thẻ sản phẩm cải tiến</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <span class="site-header__mark" aria-hidden="true">+</span>
+      <span class="site-header__name">Nhà thuốc Pharmacity</span>
+      <span class="site-header__note">Bài tập cá nhân - Chương 1</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="intro">
+      <h1 class="intro__title">Thẻ sản phẩm dễ so sánh giá, dễ chọn đúng loại</h1>
+      <p class="intro__text">Khi khảo sát trang chủ Pharmacity (tháng 11/2026), mình thấy mức giảm giá và nút thao tác trên các thẻ sản phẩm chưa thống nhất. Trang này thiết kế lại thẻ sản phẩm bằng HTML5 và CSS3. Tên, giá và hình ảnh là dữ liệu mẫu tự tạo.</p>
+    </section>
+
+    <!-- TRƯỚC / SAU: cho thấy vấn đề và điểm cải tiến -->
+    <section class="compare" aria-labelledby="compare-title">
+      <div class="compare__before">
+        <h2 id="compare-title" class="compare__heading">Vấn đề quan sát được</h2>
+        <p class="compare__hint">Mô phỏng đơn giản hóa. Phần khoanh nét đứt là điểm chưa nhất quán.</p>
+        <div class="compare__pair">
+          <div class="legacy-card">
+            <img src="images/product-1.png.jpg" alt="" width="400" height="400">
+            <span class="legacy-card__tag">Giảm 15%</span>
+            <span>Vitamin C 500mg</span>
+            <span><b>102.000₫/Hộp</b> <s>120.000₫</s></span>
+            <span class="legacy-card__btn">Chọn mua</span>
+          </div>
+          <div class="legacy-card">
+            <img src="images/product-3.png.jpg" alt="" width="400" height="400">
+            <span class="legacy-card__tag">Giảm 217.500 ₫</span>
+            <span>Máy đo huyết áp</span>
+            <span><b>1.232.500₫/Cái</b> <s>1.450.000₫</s></span>
+            <span class="legacy-card__btn">Xem chi tiết</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare__after">
+        <h2 class="compare__heading">Cải tiến trong thiết kế mới</h2>
+        <ul class="gains">
+          <li><strong>Một quy tắc cho giá.</strong> Giá bán lớn nhất, giá gốc gạch ngang, mức giảm luôn là phần trăm kèm dòng “Tiết kiệm … ₫”.</li>
+          <li><strong>So sánh được quy cách.</strong> Giá trên đơn vị nhỏ (₫/viên, ₫/ml) giúp so các hộp khác dung lượng.</li>
+          <li><strong>Biết ngay loại sản phẩm.</strong> Nhãn thuốc, thực phẩm BVSK, thiết bị y tế nằm ngay trên tên.</li>
+          <li><strong>Một kiểu nút, một vị trí.</strong> Nút luôn ở đáy thẻ. Hết hàng thì nút bị khóa và ảnh mờ, sắp hết thì có cảnh báo.</li>
+          <li><strong>Lọc nhanh.</strong> Thanh lọc theo loại và hàng đang giảm giá, viết hoàn toàn bằng CSS.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KHU VỰC SẢN PHẨM -->
+    <section class="shop" aria-labelledby="shop-title">
+      <h2 id="shop-title" class="shop__title">Sản phẩm</h2>
+
+      <!-- Radio ẩn: CSS dùng :checked để lọc, không cần JavaScript -->
+      <input class="filter-input" type="radio" name="filter" id="f-all" checked>
+      <input class="filter-input" type="radio" name="filter" id="f-sale">
+      <input class="filter-input" type="radio" name="filter" id="f-thuoc">
+      <input class="filter-input" type="radio" name="filter" id="f-tpbvsk">
+      <input class="filter-input" type="radio" name="filter" id="f-tbyt">
+      <input class="filter-input" type="radio" name="filter" id="f-cscn">
+
+      <fieldset class="filters">
+        <legend class="visually-hidden">Lọc sản phẩm</legend>
+        <label for="f-all">Tất cả</label>
+        <label for="f-sale">Đang giảm giá</label>
+        <label for="f-thuoc">Thuốc</label>
+        <label for="f-tpbvsk">Thực phẩm BVSK</label>
+        <label for="f-tbyt">Thiết bị y tế</label>
+        <label for="f-cscn">Chăm sóc cá nhân</label>
+      </fieldset>
+
+      <ul class="product-grid">
+
+        <li data-type="tpbvsk" data-sale>
+          <article class="product-card product-card--sale">
+            <figure class="product-card__media">
+              <img src="images/product-1.png.jpg" alt="Hình minh họa lọ vitamin C kèm lát cam" width="400" height="400">
+              <span class="product-card__badge">-15%</span>
+            </figure>
+            <div class="product-card__body">
+              <p class="product-card__type">Thực phẩm BVSK</p>
+              <h3 class="product-card__title">Viên uống Vitamin C 500mg</h3>
+              <p class="product-card__unit">Hộp 100 viên</p>
+              <div class="product-card__price">
+                <strong class="product-card__price-now">102.000 ₫</strong>
+                <del class="product-card__price-old"><span class="visually-hidden">Giá gốc </span>120.000 ₫</del>
+              </div>
+              <p class="product-card__saving">Tiết kiệm 18.000 ₫</p>
+              <p class="product-card__unit-price">≈ 1.020 ₫/viên</p>
+            </div>
+            <button class="product-card__button" type="button" aria-label="Chọn mua Viên uống Vitamin C 500mg">Chọn mua</button>
+          </article>
+        </li>
+
+        <li data-type="thuoc">
+          <article class="product-card product-card--soldout">
+            <figure class="product-card__media">
+              <img src="images/product-2.png.jpg" alt="Hình minh họa chai siro ho và cốc đong" width="400" height="400">
+              <span class="product-card__badge product-card__badge--soldout">Hết hàng</span>
+            </figure>
+            <div class="product-card__body">
+              <p class="product-card__type">Thuốc không kê đơn</p>
+              <h3 class="product-card__title">Siro ho thảo dược cho bé</h3>
+              <p class="product-card__unit">Chai 100ml</p>
+              <div class="product-card__price">
+                <strong class="product-card__price-now">85.000 ₫</strong>
+              </div>
+              <p class="product-card__unit-price">≈ 850 ₫/ml</p>
+            </div>
+            <button class="product-card__button" type="button" disabled>Tạm hết hàng</button>
+          </article>
+        </li>
+
+        <li data-type="tbyt" data-sale>
+          <article class="product-card product-card--sale">
+            <figure class="product-card__media">
+              <img src="images/product-3.png.jpg" alt="Hình minh họa máy đo huyết áp kèm vòng bít" width="400" height="400">
+              <span class="product-card__badge">-15%</span>
+            </figure>
+            <div class="product-card__body">
+              <p class="product-card__type">Thiết bị y tế</p>
+              <h3 class="product-card__title">Máy đo huyết áp bắp tay tự động</h3>
+              <p class="product-card__unit">Hộp 1 cái</p>
+              <div class="product-card__price">
+                <strong class="product-card__price-now">1.232.500 ₫</strong>
+                <del class="product-card__price-old"><span class="visually-hidden">Giá gốc </span>1.450.000 ₫</del>
+              </div>
+              <p class="product-card__saving">Tiết kiệm 217.500 ₫</p>
+              <p class="product-card__stock">Chỉ còn 3 sản phẩm</p>
+            </div>
+            <button class="product-card__button" type="button" aria-label="Chọn mua Máy đo huyết áp bắp tay tự động">Chọn mua</button>
+          </article>
+        </li>
+
+        <li data-type="cscn" data-sale>
+          <article class="product-card product-card--sale">
+            <figure class="product-card__media">
+              <img src="images/product-4.png.jpg" alt="Hình minh họa tuýp kem chống nắng" width="400" height="400">
+              <span class="product-card__badge">-30%</span>
+            </figure>
+            <div class="product-card__body">
+              <p class="product-card__type">Chăm sóc cá nhân</p>
+              <h3 class="product-card__title">Kem chống nắng SPF50+ cho da nhạy cảm</h3>
+              <p class="product-card__unit">Tuýp 50ml</p>
+              <div class="product-card__price">
+                <strong class="product-card__price-now">224.000 ₫</strong>
+                <del class="product-card__price-old"><span class="visually-hidden">Giá gốc </span>320.000 ₫</del>
+              </div>
+              <p class="product-card__saving">Tiết kiệm 96.000 ₫</p>
+              <p class="product-card__unit-price">≈ 4.480 ₫/ml</p>
+            </div>
+            <button class="product-card__button" type="button" aria-label="Chọn mua Kem chống nắng SPF50+ cho da nhạy cảm">Chọn mua</button>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Sản phẩm, giá và hình minh họa là dữ liệu mẫu phục vụ bài tập.</div>
+  </footer>
+
+</body>
+</html>
